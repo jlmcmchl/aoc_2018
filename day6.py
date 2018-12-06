@@ -57,8 +57,6 @@ for p in points:
                 continue
             coords[x-min_x][y-min_y] += dist((x, y), p)
 
-reduce(lambda acc, x: acc + 1 if x < 10000 else acc, flatten(coords), 0)
-
-area = len([1 for x in range(min_x, max_x) for y in range(min_y, max_y) if sum([dist(p, (x, y)) for p in points]) < 10000])
+area = reduce(lambda acc, x: acc + 1 if x < 10000 else acc, flatten(coords), 0)
 
 print('Part 2:', area)
